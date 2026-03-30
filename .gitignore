@@ -1,12 +1,8 @@
-## .NET
-bin/
-obj/
-*.user
-*.suo
-.vs/
-publish/
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+.env
 *.log
-
-## OS
 .DS_Store
 Thumbs.db

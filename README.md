@@ -1,69 +1,52 @@
-# ⚡ FastShot
+# ⚡ FastShot — Tauri Screenshot App
 
-> A lightweight, fast, and minimal desktop screenshot application for Windows.
+> Lightweight, fast, minimal desktop screenshot app. Windows first, Mac + Linux coming soon.
 
-![.NET 8](https://img.shields.io/badge/.NET-8.0-blue) ![WPF](https://img.shields.io/badge/UI-WPF-purple) ![Windows](https://img.shields.io/badge/Platform-Windows-0078D4)
+![Tauri](https://img.shields.io/badge/Tauri-2.0-blue) ![Rust](https://img.shields.io/badge/Rust-1.77+-orange) ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue) ![Platform](https://img.shields.io/badge/Platform-Windows-0078D4)
 
 ## Features
-- 📸 **Global Hotkey** (`Ctrl+Shift+S` by default) — works system-wide
-- 🖥️ **Full Screen Capture** — all monitors combined
-- 📋 **Instant Clipboard Copy** — paste anywhere immediately
-- 💾 **Auto File Save** — `screenshot_YYYYMMDD_HHMMSS.png`
-- 🔔 **Toast Notification** — subtle balloon tip
-- ⚙️ **Settings UI** — change hotkey, folder, toggles
-- 🗂️ **System Tray** — runs silently in background
+- 📸 Global Hotkey (`Ctrl+Shift+S`) — system-wide
+- 🖥️ Full Screen Capture (all monitors)
+- 📋 Instant Clipboard Copy
+- 💾 Auto File Save `screenshot_YYYYMMDD_HHMMSS.png`
+- 🔔 Toast Notifications
+- ⚙️ Settings UI (hotkey, folder, toggles)
+- 🗂️ System Tray
+- 📦 NSIS `.exe` Installer
 
-## Requirements
-- Windows 10 / 11
-- [.NET 8 SDK](https://dot.net/download)
+## Prerequisites
+| Tool | Version | Install |
+|------|---------|---------|
+| Node.js | 20+ | https://nodejs.org |
+| Rust | 1.77+ | https://rustup.rs |
+| VS C++ Build Tools | Latest | https://aka.ms/buildtools |
 
-## Build & Run
+## Quick Start
 ```bash
-dotnet run
+npm install
+npm run tauri dev
 ```
 
-## Publish single-file EXE
+## Build Installer
 ```bash
-dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o ./publish
+npm run tauri build
+# Output: src-tauri/target/release/bundle/nsis/FastShot_1.0.0_x64-setup.exe
 ```
 
-## Configuration
-Stored at `%LOCALAPPDATA%\FastShot\settings.json`
+## Config
+`%LOCALAPPDATA%\\FastShot\\settings.json`
 ```json
 {
-  "Hotkey": "Ctrl+Shift+S",
-  "SavePath": "C:/Users/<You>/Pictures/Screenshots",
-  "SaveToDisk": true,
-  "ShowToast": true
+  "hotkey": "Ctrl+Shift+S",
+  "save_path": "C:/Users/You/Pictures/Screenshots",
+  "save_to_disk": true,
+  "show_toast": true
 }
 ```
 
-## Project Structure
-```
-FastShot/
-├── Models/
-│   └── Config.cs
-├── Services/
-│   ├── ClipboardService.cs
-│   ├── ConfigService.cs
-│   ├── FileStorageService.cs
-│   ├── HotkeyParser.cs
-│   ├── HotkeyService.cs
-│   ├── ScreenshotService.cs
-│   └── ToastService.cs
-├── Views/
-│   ├── SettingsWindow.xaml
-│   └── SettingsWindow.xaml.cs
-├── App.xaml
-├── App.xaml.cs
-├── HiddenWindow.cs
-├── TrayIconHost.cs
-└── FastShot.csproj
-```
-
 ## Roadmap
-- [ ] Region/partial screen capture
+- [ ] Region capture
+- [ ] Multi-monitor stitching
 - [ ] Annotation tools
-- [ ] Multi-monitor mode selector
-- [ ] Scroll capture
+- [ ] macOS + Linux
 - [ ] Cloud sharing

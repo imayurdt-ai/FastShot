@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastShot — Settings</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <span class="logo">📸</span>
+      <h1>FastShot</h1>
+      <p class="tagline">The fastest way to capture your screen</p>
+    </header>
+    <main>
+      <section class="card">
+        <label for="hotkey">⌨️ Global Hotkey</label>
+        <div class="row">
+          <input id="hotkey" type="text" placeholder="Ctrl+Shift+S" />
+        </div>
+        <p class="hint">e.g. Ctrl+Shift+S &nbsp;|&nbsp; Ctrl+Alt+P</p>
+      </section>
+      <section class="card">
+        <label for="savePath">📁 Save Folder</label>
+        <div class="row">
+          <input id="savePath" type="text" placeholder="C:\\Users\\You\\Pictures\\Screenshots" />
+          <button id="browseBtn" class="secondary">Browse</button>
+        </div>
+      </section>
+      <section class="card toggles">
+        <div class="toggle-row">
+          <span>💾 Save screenshot to disk</span>
+          <label class="switch"><input id="saveToDisk" type="checkbox" checked /><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span>🔔 Show notification after capture</span>
+          <label class="switch"><input id="showToast" type="checkbox" checked /><span class="slider"></span></label>
+        </div>
+      </section>
+      <div id="status" class="status hidden"></div>
+      <div class="actions">
+        <button id="screenshotBtn" class="primary">📸 Take Screenshot Now</button>
+        <button id="saveBtn" class="primary">Save Settings</button>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
