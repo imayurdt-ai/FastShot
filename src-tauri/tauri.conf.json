@@ -10,7 +10,7 @@
     "windows": [
       {
         "label":       "main",
-        "title":       "FastShot — Settings",
+        "title":       "FastShot \u2014 Settings",
         "width":       480,
         "height":      520,
         "resizable":   false,
@@ -36,10 +36,12 @@
       "icons/128x128.png",
       "icons/icon.ico"
     ],
-    "nsis": {
-      "displayLanguageSelector": false,
-      "installMode":             "currentUser",
-      "shortcutName":            "FastShot"
+    "windows": {
+      "nsis": {
+        "displayLanguageSelector": false,
+        "installMode":             "currentUser",
+        "shortcutName":            "FastShot"
+      }
     }
   },
 
